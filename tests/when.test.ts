@@ -197,4 +197,12 @@ describe('when', () => {
         .with({ type: 'none' }, () => 'nope')
         .run();
   });
+
+
+  it('should pass matched value to otherwise', () => {
+    const result = match(42)
+      .with(51, d => d)
+      .otherwise(d => d);
+    expect(result).toBe(42);
+  })
 });
